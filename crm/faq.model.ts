@@ -1,10 +1,10 @@
 import { getModelForClass, modelOptions, prop, ReturnModelType } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-export enum FaqType {
+export enum FaqAccountType {
 	USER = 'user',
 	SHOP = 'shop',
-	DELIVERY_BOY = 'deliveryBoy',
+	RIDER = 'rider',
 }
 
 export enum Status {
@@ -20,8 +20,8 @@ export class Faq extends TimeStamps {
 	@prop({ required: true, type: String })
 	public answer!: string;
 
-	@prop({ required: true, enum: FaqType })
-	public faqType!: FaqType;
+	@prop({ required: true, enum: FaqAccountType })
+	public accountType!: FaqAccountType;
 
 	@prop({ enum: Status, default: Status.ACTIVE })
 	public status?: Status;

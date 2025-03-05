@@ -1,7 +1,7 @@
 import { getModelForClass, index, modelOptions, mongoose, prop, ReturnModelType } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-export enum AccountType {
+export enum NotificationAccountType {
 	USER = 'user',
 	PARENT = 'parent',
 	SHOP = 'shop',
@@ -38,8 +38,8 @@ export class Notification extends TimeStamps {
 	@prop({ type: String })
 	public sound?: string;
 
-	@prop({ required: true, type: String, enum: AccountType })
-	public accountType!: AccountType;
+	@prop({ required: true, type: String, enum: NotificationAccountType })
+	public accountType!: NotificationAccountType;
 
 	@prop({ type: Boolean, default: false })
 	public isGlobal?: boolean;

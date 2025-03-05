@@ -16,7 +16,7 @@ export enum ItemType {
 	HEALTHY_CORNER = 'healthy_corner',
 }
 
-export enum ClickType {
+export enum BannerClickType {
 	LINK = 'link',
 	SHOP = 'shop',
 	PRODUCT = 'product',
@@ -24,12 +24,12 @@ export enum ClickType {
 	PLUS = 'plus',
 }
 
-export enum LinkType {
+export enum BannerLinkType {
 	URL = 'url',
 	APP_ROUTE = 'app-route',
 }
 
-export enum UserType {
+export enum BannerUserType {
 	ALL = 'all',
 	PLUS = 'plus',
 	NORMAL = 'normal',
@@ -53,17 +53,17 @@ export class Banner extends TimeStamps {
 	})
 	public status?: Status;
 
-	@prop({ type: String, enum: UserType, default: UserType.ALL })
-	public visibility?: UserType;
+	@prop({ type: String, enum: BannerUserType, default: BannerUserType.ALL })
+	public visibility?: BannerUserType;
 
 	@prop({ type: Boolean, default: false })
 	public isClickable?: boolean;
 
-	@prop({ type: String, enum: ClickType })
-	public clickType?: ClickType;
+	@prop({ type: String, enum: BannerClickType })
+	public clickType?: BannerClickType;
 
-	@prop({ type: String, enum: LinkType })
-	public linkType?: LinkType;
+	@prop({ type: String, enum: BannerLinkType })
+	public linkType?: BannerLinkType;
 
 	@prop({ type: String, trim: true })
 	public link?: string;

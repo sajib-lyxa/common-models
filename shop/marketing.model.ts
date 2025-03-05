@@ -28,7 +28,7 @@ export enum MarketingType {
 	PUNCH_MARKETING = 'punch_marketing',
 }
 
-export enum Status {
+export enum MarketingStatus {
 	ACTIVE = 'active',
 	PAUSED = 'paused',
 	EXPIRED = 'expired',
@@ -68,8 +68,8 @@ export class BaseMarketing extends TimeStamps {
 	@prop({ required: true, type: Duration })
 	public duration!: Duration;
 
-	@prop({ type: String, enum: Status, default: Status.ACTIVE })
-	public status?: Status;
+	@prop({ type: String, enum: MarketingStatus, default: MarketingStatus.ACTIVE })
+	public status?: MarketingStatus;
 
 	@prop({ type: Date, default: null })
 	public pausedAt?: Date | null;

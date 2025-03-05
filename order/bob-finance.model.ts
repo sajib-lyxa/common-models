@@ -1,17 +1,17 @@
 import { getModelForClass, modelOptions, mongoose, prop, Ref, ReturnModelType } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-export enum AccountType {
+export enum BobAccountType {
 	RIDER = 'rider',
 	SHOP = 'shop',
 }
 
-export enum SettlementType {
+export enum BobSettlementType {
 	SETTLE_CASH = 'settle_cash',
 	SETTLE_PAYOUT = 'settle_Payout',
 }
 
-export enum SettlementStatus {
+export enum BobSettlementStatus {
 	NOT_PAID = 'not_paid',
 	PAID = 'paid',
 	REVOKED = 'revoked',
@@ -38,11 +38,11 @@ export class BobFinance extends TimeStamps {
 	@prop({ required: true, type: String })
 	public referenceId!: string;
 
-	@prop({ required: true, type: String, enum: AccountType })
-	public accountType!: AccountType;
+	@prop({ required: true, type: String, enum: BobAccountType })
+	public accountType!: BobAccountType;
 
-	@prop({ required: true, type: String, enum: SettlementType })
-	public settlementType!: SettlementType;
+	@prop({ required: true, type: String, enum: BobSettlementType })
+	public settlementType!: BobSettlementType;
 
 	@prop({ type: Number, default: 0 })
 	public amount?: number;
@@ -50,8 +50,8 @@ export class BobFinance extends TimeStamps {
 	@prop({ type: Number, default: 0 })
 	public secondaryAmount?: number;
 
-	@prop({ type: String, enum: SettlementStatus, default: SettlementStatus.NOT_PAID })
-	public status?: SettlementStatus;
+	@prop({ type: String, enum: BobSettlementStatus, default: BobSettlementStatus.NOT_PAID })
+	public status?: BobSettlementStatus;
 
 	@prop({ type: mongoose.Types.ObjectId })
 	public admin?: mongoose.Types.ObjectId;

@@ -1,7 +1,7 @@
 import { getModelForClass, modelOptions, prop, ReturnModelType } from '@typegoose/typegoose';
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-export enum AccountType {
+export enum RatingAccountType {
 	SHOP = 'shop',
 	RIDER = 'rider',
 }
@@ -14,8 +14,8 @@ export class RatingSetting extends TimeStamps {
 	@prop({ required: true, type: () => [String] })
 	public tags!: string[];
 
-	@prop({ required: true, type: String, enum: AccountType })
-	public accountType!: AccountType;
+	@prop({ required: true, type: String, enum: RatingAccountType })
+	public accountType!: RatingAccountType;
 }
 
 export const RatingSettingModel: ReturnModelType<typeof RatingSetting> = getModelForClass(RatingSetting);

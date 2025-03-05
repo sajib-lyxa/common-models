@@ -2,7 +2,7 @@ import { modelOptions, prop, getModelForClass, ReturnModelType } from '@typegoos
 import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
 // Define subscription package enum
-enum Package {
+enum SubscriptionPackage {
 	MONTHLY = 'monthly',
 	YEARLY = 'yearly',
 }
@@ -15,8 +15,8 @@ enum Status {
 
 @modelOptions({ schemaOptions: { collection: 'subscription_setting' } })
 export class SubscriptionSetting extends TimeStamps {
-	@prop({ required: true, unique: true, type: String, enum: Package })
-	public package!: Package;
+	@prop({ required: true, unique: true, type: String, enum: SubscriptionPackage })
+	public package!: SubscriptionPackage;
 
 	@prop({ required: true, type: Number })
 	public amount!: number;
